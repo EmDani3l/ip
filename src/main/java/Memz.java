@@ -5,11 +5,16 @@ public class Memz {
 
         Scanner in = new Scanner(System.in);
 
-        String logo = "____________________________________________________________\n"
-                + "Hello! I'm Memz!\n"
-                + "What can I do for you?\n"
-                + "____________________________________________________________\n";
-        System.out.println(logo);
+        System.out.println("Hello from");
+        System.out.println(" __  __                      ");
+        System.out.println("|  \\/  | ___ _ __ ___  ____ ");
+        System.out.println("| |\\/| |/ _ \\ '_ ` _ \\|_  / ");
+        System.out.println("| |  | |  __/ | | | | |/ /  ");
+        System.out.println("|_|  |_|\\___|_| |_| |_/___| ");
+        System.out.println("Want a cookie? Dowan give then how?\n");
+
+        String[] items = new String[100];
+        int listIndex = 1;
 
         while (true) {
             String input = in.nextLine();
@@ -19,8 +24,17 @@ public class Memz {
                 System.out.println("Bye. Hope to see you again soon!\n"
                 + "___________________________________________________________");
                 break;
-            } else {
-                System.out.println(input);
+            }
+            else if (input.equals("list")) {
+                for (int i = 1; i < listIndex; i++) {
+                    System.out.println(i + ". " + items[i]);
+                }
+                System.out.println("___________________________________________________________");
+            }
+            else {
+                System.out.println("added: " + input);
+                items[listIndex] = input;
+                listIndex++;
                 System.out.println("___________________________________________________________");
             }
         }
