@@ -13,30 +13,42 @@ public class Memz {
         System.out.println("|_|  |_|\\___|_| |_| |_/___| ");
         System.out.println("Want a cookie? Dowan give then how?\n");
 
-        String[] items = new String[100];
-        int listIndex = 1;
+        Task[] tasks = new Task[100];
+        int taskCount = 0;
 
         while (true) {
             String input = in.nextLine();
             System.out.println("___________________________________________________________\n");
 
             if (input.equals("bye")) {
-                System.out.println("Bye. Hope to see you again soon!\n"
+                System.out.println("Bye. You better watch out.\n"
                 + "___________________________________________________________");
                 break;
             }
             else if (input.equals("list")) {
-                for (int i = 1; i < listIndex; i++) {
-                    System.out.println(i + ". " + items[i]);
+                System.out.println("Here are your tasks. Stop procrastinating:");
+                for (int i = 0; i < taskCount; i++) {
+                    System.out.println((i + 1) + ". " + tasks[i].toString());
                 }
-                System.out.println("___________________________________________________________");
+            }
+            else if (input.startsWith("mark")) {
+                int idx = Integer.parseInt(input.substring(5)) - 1;
+                tasks[idx].markAsDone();
+                System.out.println("Fine. You can have this one:");
+                System.out.println("  " + tasks[idx]);
+            }
+            else if (input.startsWith("unmark")) {
+                int idx = Integer.parseInt(input.substring(7)) - 1;
+                tasks[idx].unmarkDone();
+                System.out.println("SEE, you're not done yet:");
+                System.out.println("  " + tasks[idx]);
             }
             else {
+                tasks[taskCount] = new Task(input);
+                taskCount++;
                 System.out.println("added: " + input);
-                items[listIndex] = input;
-                listIndex++;
-                System.out.println("___________________________________________________________");
             }
+            System.out.println("___________________________________________________________");
         }
     }
 }
