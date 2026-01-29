@@ -21,29 +21,28 @@ public class Memz {
             System.out.println("___________________________________________________________\n");
 
             if (input.equals("bye")) {
+                //exit condition
                 System.out.println("Bye. You better watch out.\n"
-                + "___________________________________________________________");
+                        + "___________________________________________________________");
                 break;
-            }
-            else if (input.equals("list")) {
+            } else if (input.equals("list")) {
                 System.out.println("Here are your tasks. Stop procrastinating:");
                 for (int i = 0; i < taskCount; i++) {
                     System.out.println((i + 1) + ". " + tasks[i].toString());
                 }
-            }
-            else if (input.startsWith("mark")) {
+            } else if (input.startsWith("mark")) {
+                //set a task as done
                 int idx = Integer.parseInt(input.substring(5)) - 1;
                 tasks[idx].markAsDone();
                 System.out.println("Fine. You can have this one:");
                 System.out.println("  " + tasks[idx]);
-            }
-            else if (input.startsWith("unmark")) {
+            } else if (input.startsWith("unmark")) {
+                //set a task as not being done
                 int idx = Integer.parseInt(input.substring(7)) - 1;
                 tasks[idx].unmarkDone();
                 System.out.println("SEE, you're not done yet:");
                 System.out.println("  " + tasks[idx]);
-            }
-            else {
+            } else {
                 tasks[taskCount] = new Task(input);
                 taskCount++;
                 System.out.println("added: " + input);
