@@ -1,0 +1,11 @@
+todo read book
+deadline return book /by Sunday
+todo join sports club
+event project meeting /from Mon 2pm /to 4pm
+list
+mark 1
+mark 4
+list
+unmark 1
+randomCommand
+bye
