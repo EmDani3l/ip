@@ -1,6 +1,10 @@
+/**
+ * Represents a generic task with a description and completion status.
+ * Acts as the parent class for specific task types like Todo, Deadline, and Event.
+ */
 public class Task {
-    private String description;
-    private boolean isDone;
+    protected String description;
+    protected boolean isDone;
 
     public Task(String description) {
         this.description = description;
@@ -12,14 +16,24 @@ public class Task {
         return (isDone ? "X" : " ");
     }
 
+    /**
+     * Updates the task status to done.
+     */
     public void markAsDone() {
         this.isDone = true;
     }
 
+    /**
+     * Updates the task status to not done.
+     */
     public void unmarkDone() {
         this.isDone = false;
     }
 
+    /**
+     * Returns a string representation of the task, including its status icon and description.
+     * Returns a formatted string of the task status.
+     */
     public String toString() {
         return "[" + getStatusIcon() + "] " + description;
     }

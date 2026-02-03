@@ -1,8 +1,17 @@
+/**
+ * Represents a task that occurs during a specific time frame.
+ */
 public class Event extends Task {
 
     protected String from;
     protected String to;
 
+    /**
+     * Initializes a new Event task.
+     * * @param description The name of the event.
+     * @param from The start time/date of the event.
+     * @param to The end time/date of the event.
+     */
     public Event(String description, String from, String to) {
         super(description);
         this.from = from;
