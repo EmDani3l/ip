@@ -1,50 +1,71 @@
-#!/usr/bin/env bash
-
-# create bin directory if it doesn't exist
-if [ ! -d "../bin" ]
-then
-    mkdir ../bin
-fi
+Hello from
+ __  __                      
+|  \/  | ___ _ __ ___  ____ 
+| |\/| |/ _ \ '_ ` _ \|_  / 
+| |  | |  __/ | | | | |/ /  
+|_|  |_|\___|_| |_| |_/___| 
+Want a cookie? Dowan give then how?
 
 ___________________________________________________________
+
 Wah think u big isit. I add:
  [T][ ] read book
  Now you have 1 tasks in the list.
 ___________________________________________________________
+___________________________________________________________
+
 Careful ah:
 [D][ ] return book (by: Sunday)
  Now you have 2 tasks in the list.
 ___________________________________________________________
+___________________________________________________________
+
 Wah think u big isit. I add:
  [T][ ] join sports club
  Now you have 3 tasks in the list.
 ___________________________________________________________
+___________________________________________________________
+
 Bye time:
 [E][ ] project meeting (from: Mon 2pm to: 4pm)
  Now you have 4 tasks in the list.
 ___________________________________________________________
+___________________________________________________________
+
 Here are your tasks. Stop procrastinating:
 1.[T][ ] read book
 2.[D][ ] return book (by: Sunday)
 3.[T][ ] join sports club
 4.[E][ ] project meeting (from: Mon 2pm to: 4pm)
 ___________________________________________________________
+___________________________________________________________
+
 Fine. You can have this one:
   [T][X] read book
 ___________________________________________________________
+___________________________________________________________
+
 Fine. You can have this one:
   [E][X] project meeting (from: Mon 2pm to: 4pm)
 ___________________________________________________________
+___________________________________________________________
+
 Here are your tasks. Stop procrastinating:
 1.[T][X] read book
 2.[D][ ] return book (by: Sunday)
 3.[T][ ] join sports club
 4.[E][X] project meeting (from: Mon 2pm to: 4pm)
 ___________________________________________________________
+___________________________________________________________
+
 SEE, you're not done yet:
   [T][ ] read book
 ___________________________________________________________
+___________________________________________________________
+
 TF did u just say? Try again.
 ___________________________________________________________
+___________________________________________________________
+
 Bye. You better watch out.
 ___________________________________________________________
