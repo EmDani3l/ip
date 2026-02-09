@@ -2,11 +2,11 @@ memz.Memz Chatbot - Adapted from Duke
 memz.Memz is a CLI task manager that tracks your Todos, Deadlines, and Events.
 
 How to Run
-Open a terminal in the project folder.
-
-Compile the code: javac -cp src/main/java -d bin src/main/java/*.java
-
-Run the bot: java -cp bin memz.Memz
+1. Open a terminal in the project folder.
+2. Compile the code:
+   `javac -cp src/main/java -d bin src/main/java/memz/Memz.java`
+3. Run the bot:
+   `java -cp bin memz.Memz`
 
 User Guide
 1. Add a memz.tasks.Todo Adds a basic task without a date. Format: todo <description> Example: todo read book
