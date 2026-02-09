@@ -8,4 +8,14 @@ mark 4
 list
 unmark 1
 randomCommand
+todo
+deadline
+deadline return book
+deadline return book /by
+event
+event project meeting
+event project meeting /from Mon 2pm
+mark
+mark abc
+mark 100
 bye

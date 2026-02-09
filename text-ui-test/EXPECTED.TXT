@@ -8,27 +8,27 @@ Want a cookie? Dowan give then how?
 
 ___________________________________________________________
 
-Wah think u big isit. I add:
- [T][ ] read book
- Now you have 1 tasks in the list.
+Got it. I've added this task:
+  [T][ ] read book
+Now you have 1 tasks in the list.
 ___________________________________________________________
 ___________________________________________________________
 
-Careful ah:
-[D][ ] return book (by: Sunday)
- Now you have 2 tasks in the list.
+Got it. I've added this task:
+  [D][ ] return book (by: Sunday)
+Now you have 2 tasks in the list.
 ___________________________________________________________
 ___________________________________________________________
 
-Wah think u big isit. I add:
- [T][ ] join sports club
- Now you have 3 tasks in the list.
+Got it. I've added this task:
+  [T][ ] join sports club
+Now you have 3 tasks in the list.
 ___________________________________________________________
 ___________________________________________________________
 
-Bye time:
-[E][ ] project meeting (from: Mon 2pm to: 4pm)
- Now you have 4 tasks in the list.
+Got it. I've added this task:
+  [E][ ] project meeting (from: Mon 2pm to: 4pm)
+Now you have 4 tasks in the list.
 ___________________________________________________________
 ___________________________________________________________
 
@@ -63,7 +63,58 @@ SEE, you're not done yet:
 ___________________________________________________________
 ___________________________________________________________
 
-TF did u just say? Try again.
+OI. I don't know what that means.
+Please follow the given input format:
+Correct format: todo <description> | Correct format: deadline <description> /by <time> | Correct format: event <description> /from <start> /to <end>
+___________________________________________________________
+___________________________________________________________
+
+Stop pretending to do nothing.
+Correct format: todo <description>
+___________________________________________________________
+___________________________________________________________
+
+Deadline cannot not exist.
+Correct format: deadline <description> /by <time>
+___________________________________________________________
+___________________________________________________________
+
+You ain't running from this one.
+Correct format: deadline <description> /by <time>
+___________________________________________________________
+___________________________________________________________
+
+You ain't running from this one.
+Correct format: deadline <description> /by <time>
+___________________________________________________________
+___________________________________________________________
+
+Events are not imaginary.
+Correct format: event <description> /from <start> /to <end>
+___________________________________________________________
+___________________________________________________________
+
+An event only begins if it ends and only ends if it begins.
+Correct format: event <description> /from <start> /to <end>
+___________________________________________________________
+___________________________________________________________
+
+An event only begins if it ends and only ends if it begins.
+Correct format: event <description> /from <start> /to <end>
+___________________________________________________________
+___________________________________________________________
+
+Do you know what a number is??
+Example: mark 1
+___________________________________________________________
+___________________________________________________________
+
+Do you know what a number is??
+Example: mark 1
+___________________________________________________________
+___________________________________________________________
+
+I know you are not THAT busy. Pick a task you actually have.
 ___________________________________________________________
 ___________________________________________________________
 
