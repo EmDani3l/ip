@@ -1,3 +1,5 @@
+package memz.ui;
+
 public class Ui {
     // Normal behaviour constants
     public static final String LINE = "___________________________________________________________";
@@ -30,7 +32,7 @@ public class Ui {
     // Error message constants
     public static final String ERROR_UNKNOWN_COMMAND = "OI. I don't know what that means.\n";
     public static final String ERROR_EMPTY_TODO = "Stop pretending to do nothing.\n";
-    public static final String ERROR_EMPTY_DEADLINE = "Deadline cannot not exist.\n";
+    public static final String ERROR_EMPTY_DEADLINE = "memz.tasks.Deadline cannot not exist.\n";
     public static final String ERROR_MISSING_BY = "You ain't running from this one.\n";
     public static final String ERROR_EMPTY_EVENT = "Events are not imaginary.\n";
     public static final String ERROR_MISSING_FROM_TO = "An event only begins if it ends and only ends if it begins.\n";

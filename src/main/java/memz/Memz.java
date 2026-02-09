@@ -1,7 +1,16 @@
+package memz;
+
+import memz.exceptions.MemzException;
+import memz.tasks.Deadline;
+import memz.tasks.Event;
+import memz.tasks.Task;
+import memz.tasks.Todo;
+import memz.ui.Ui;
+
 import java.util.Scanner;
 
 /**
- * The main class of the Memz chatbot application.
+ * The main class of the memz.Memz chatbot application.
  * Handles user interaction, input parsing, and task management.
  */
 public class Memz {
@@ -51,7 +60,7 @@ public class Memz {
     }
 
     /**
-     * Displays the welcome message and the Memz logo to the standard output.
+     * Displays the welcome message and the memz.Memz logo to the standard output.
      */
     private static void printGreeting() {
         System.out.println(Ui.LOGO);
@@ -75,7 +84,7 @@ public class Memz {
     }
 
     /**
-     * Parses the user input to create and add a specific type of task (Todo, Deadline, or Event).
+     * Parses the user input to create and add a specific type of task (memz.tasks.Todo, memz.tasks.Deadline, or memz.tasks.Event).
      * Validates the input format and throws an exception if the format is incorrect
      * or if required arguments (like /by, /from, /to) are missing.
      *

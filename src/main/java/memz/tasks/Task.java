@@ -1,6 +1,8 @@
+package memz.tasks;
+
 /**
  * Represents a generic task with a description and completion status.
- * Acts as the parent class for specific task types like Todo, Deadline, and Event.
+ * Acts as the parent class for specific task types like memz.tasks.Todo, memz.tasks.Deadline, and memz.tasks.Event.
  */
 public class Task {
     protected String description;
