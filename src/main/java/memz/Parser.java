@@ -21,64 +21,77 @@ public class Parser {
      * @throws IndexOutOfBoundsException If a task index is invalid.
      */
     public static boolean parseAndExecute(String input, TaskList tasks, Ui ui) throws MemzException {
-        if (input.equals("bye")) {
+        // Extract the command word (first word) to determine the action
+        String command = input.split(" ")[0];
+
+        switch (command) {
+        case "bye":
             ui.showExit();
             return false;
-        }
-        if (input.equals("list")) {
+
+        case "list":
             ui.showTaskList(tasks);
             return true;
-        }
-        if (input.startsWith("mark")) {
+
+        case "mark":
             handleMark(input, true, tasks, ui);
             return true;
-        }
-        if (input.startsWith("unmark")) {
+
+        case "unmark":
             handleMark(input, false, tasks, ui);
             return true;
-        }
-        if (input.startsWith("todo") || input.startsWith("deadline") || input.startsWith("event")) {
-            handleAddTask(input, tasks, ui);
+
+        case "todo":
+        case "deadline":
+        case "event":
+            handleAddTask(command, input, tasks, ui);
             return true;
+
+        default:
+            throw new MemzException(Ui.ERROR_UNKNOWN_COMMAND + Ui.PROPER_OVERALL_FORMAT);
         }
-        // If none of the above matches
-        throw new MemzException(Ui.ERROR_UNKNOWN_COMMAND + Ui.PROPER_OVERALL_FORMAT);
     }
 
     /**
      * Parses user input and adds the corresponding task type to the task list.
      * Delegates the creation of specific task objects to helper methods.
      *
-     * @param input The raw command string.
-     * @param tasks The list of tasks to add to.
-     * @param ui    The UI to print success messages.
+     * @param command The command type (todo, deadline, event).
+     * @param input   The raw command string.
+     * @param tasks   The list of tasks to add to.
+     * @param ui      The UI to print success messages.
      * @throws MemzException If the task cannot be parsed due to formatting errors.
      */
-    private static void handleAddTask(String input, TaskList tasks, Ui ui) throws MemzException {
-        if (input.startsWith("todo")) {
+    private static void handleAddTask(String command, String input, TaskList tasks, Ui ui) throws MemzException {
+        Task newTask;
+
+        switch (command) {
+        case "todo":
             if (input.length() <= 5) {
                 throw new MemzException(Ui.ERROR_EMPTY_TODO + Ui.PROPER_TODO_FORMAT);
             }
-            Task newTask = new Todo(input.substring(5));
-            tasks.add(newTask);
-            ui.showTaskAdded(newTask, tasks.size());
+            newTask = new Todo(input.substring(5));
+            break;
 
-        } else if (input.startsWith("deadline")) {
-            // Renamed getTask -> parseDeadline
-            Task newTask = parseDeadline(input);
-            tasks.add(newTask);
-            ui.showTaskAdded(newTask, tasks.size());
+        case "deadline":
+            newTask = parseDeadline(input);
+            break;
 
-        } else if (input.startsWith("event")) {
-            // Renamed getNewTask -> parseEvent
-            Task newTask = parseEvent(input);
-            tasks.add(newTask);
-            ui.showTaskAdded(newTask, tasks.size());
+        case "event":
+            newTask = parseEvent(input);
+            break;
+
+        default:
+            // This should logically never happen due to the switch in parseAndExecute
+            throw new MemzException(Ui.ERROR_UNKNOWN_COMMAND);
         }
+
+        tasks.add(newTask);
+        ui.showTaskAdded(newTask, tasks.size());
     }
 
     /**
-     * Extracts details from a "event" command and creates a new Event object.
+     * Extracts details from an "event" command and creates a new Event object.
      * Validates that the input contains the required "/from" and "/to" tags and
      * that the description is not empty.
      *

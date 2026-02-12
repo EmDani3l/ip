@@ -5,7 +5,6 @@ import memz.tasks.TaskList;
 import memz.ui.Ui;
 
 /**
- * The main class of the Memz chatbot application.
  * Handles user interaction, input parsing, and task management.
  */
 public class Memz {
@@ -18,7 +17,6 @@ public class Memz {
     }
 
     /**
-     * The entry point of the application.
      * Runs the main event loop, reading user input and delegating commands
      * to specific handler methods until the "bye" command is received.
      * Handles top-level exceptions for invalid inputs and execution errors.
