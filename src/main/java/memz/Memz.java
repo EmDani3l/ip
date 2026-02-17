@@ -20,7 +20,6 @@ public class Memz {
      * Runs the main event loop, reading user input and delegating commands
      * to specific handler methods until the "bye" command is received.
      * Handles top-level exceptions for invalid inputs and execution errors.
-     *
      * @param args Command line arguments (not used).
      */
     public static void main(String[] args) {

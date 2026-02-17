@@ -10,6 +10,7 @@ public class Ui {
     // Normal behaviour constants
     public static final String LINE = "___________________________________________________________";
     public static final String TASK_ADDED_MESSAGE = "Got it. I've added this task:\n  ";
+    public static final String TASK_DELETED_MESSAGE = "Cheater. I've removed this task:\n  ";
     public static final String LIST_MESSAGE = "Here are your tasks. Stop procrastinating:";
     public static final String MARK_TASK_MESSAGE = "Fine. You can have this one:\n  ";
     public static final String UNMARK_TASK_MESSAGE = "SEE, you're not done yet:\n  ";
@@ -81,6 +82,13 @@ public class Ui {
      */
     public void showTaskAdded(Task task, int count) {
         System.out.println(TASK_ADDED_MESSAGE + task + "\nNow you have " + count + " tasks in the list.");
+    }
+
+    /**
+     * Prints a confirmation message indicating a task has been successfully deleted.
+     */
+    public void showTaskDeleted(Task task, int count) {
+        System.out.println(TASK_DELETED_MESSAGE + task + "\nNow you have " + count + " tasks in the list.");
     }
 
     /**
