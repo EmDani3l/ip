@@ -1,28 +1,29 @@
 package memz.tasks;
 
+import java.util.ArrayList;
+
 /**
  * Manages the list of tasks.
- * Handles adding, retrieving, and updating tasks.
+ * Handles adding, deleting, retrieving, and updating tasks.
  */
 public class TaskList {
-    private final Task[] tasks;
+    private final ArrayList<Task> tasks;
     private int taskCount;
 
     public TaskList() {
-        this.tasks = new Task[100];
-        this.taskCount = 0;
+        this.tasks = new ArrayList<>();
     }
 
     public void add(Task task) {
-        tasks[taskCount++] = task;
+        tasks.add(task);
     }
 
     public Task get(int index) {
-        return tasks[index];
+        return tasks.get(index);
     }
 
     public int size() {
-        return taskCount;
+        return tasks.size();
     }
 
     /**
@@ -30,7 +31,7 @@ public class TaskList {
      * @param index The zero-based index of the task.
      */
     public void mark(int index) {
-        tasks[index].markAsDone();
+        tasks.get(index).markAsDone();
     }
 
     /**
@@ -38,6 +39,15 @@ public class TaskList {
      * @param index The zero-based index of the task.
      */
     public void unmark(int index) {
-        tasks[index].unmarkDone();
+        tasks.get(index).unmarkDone();
+    }
+
+    /**
+     * Deletes a task from the list based on index.
+     * @param index The zero-based index of the task to delete.
+     * @return The task that was removed.
+     */
+    public Task delete(int index) {
+        return tasks.remove(index);
     }
 }

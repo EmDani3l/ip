@@ -11,7 +11,6 @@ public class Parser {
 
     /**
      * Parses the user input and executes the corresponding command.
-     *
      * @param input The raw command line string entered by the user.
      * @param tasks The TaskList containing the tasks.
      * @param ui    The Ui to deal with user interactions.
@@ -39,6 +38,10 @@ public class Parser {
 
         case "unmark":
             handleMark(input, false, tasks, ui);
+            return true;
+
+        case "delete":
+            handleDelete(input, tasks, ui);
             return true;
 
         case "todo":
@@ -94,7 +97,6 @@ public class Parser {
      * Extracts details from an "event" command and creates a new Event object.
      * Validates that the input contains the required "/from" and "/to" tags and
      * that the description is not empty.
-     *
      * @param input The full command string (e.g., "event meeting /from Mon /to Fri").
      * @return An Event object containing the description, start time, and end time.
      * @throws MemzException If the description is empty, tags are missing, or the format is incorrect.
@@ -103,10 +105,10 @@ public class Parser {
         if (input.length() <= 6) {
             throw new MemzException(Ui.ERROR_EMPTY_EVENT + Ui.PROPER_EVENT_FORMAT);
         }
+        // If either /from or /to is missing
         if (!input.contains(" /from ") || !input.contains(" /to ")) {
             throw new MemzException(Ui.ERROR_MISSING_FROM_TO + Ui.PROPER_EVENT_FORMAT);
         }
-
         // Split by the delimiters to get Description, From, and To parts
         String[] parts = input.substring(6).split(" /from | /to ");
         if (parts.length < 3) {
@@ -119,7 +121,6 @@ public class Parser {
      * Extracts details from a "deadline" command and creates a new Deadline object.
      * Validates that the input contains the required "/by" tag and that the
      * description is not empty.
-     *
      * @param input The full command string (e.g., "deadline submit report /by Monday").
      * @return A Deadline object containing the description and due date.
      * @throws MemzException If the description is empty, the "/by" tag is missing, or the format is incorrect.
@@ -162,5 +163,25 @@ public class Parser {
             tasks.unmark(idx);
             ui.showUnmarked(tasks.get(idx));
         }
+    }
+
+    /**
+     * Deletes a task based on its index in the list.
+     *
+     * @param input The raw command string (e.g., "delete 3").
+     * @param tasks The list of tasks.
+     * @param ui    The UI to print success messages.
+     */
+    private static void handleDelete(String input, TaskList tasks, Ui ui) {
+        if (input.length() <= 7) {
+            throw new NumberFormatException();
+        }
+        int idx = Integer.parseInt(input.substring(7)) - 1;
+
+        if (idx < 0 || idx >= tasks.size()) {
+            throw new IndexOutOfBoundsException();
+        }
+        Task removedTask = tasks.delete(idx);
+        ui.showTaskDeleted(removedTask, tasks.size());
     }
 }
