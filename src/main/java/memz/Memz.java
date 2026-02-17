@@ -10,10 +10,13 @@ import memz.ui.Ui;
 public class Memz {
     private final Ui ui;
     private final TaskList tasks;
+    private final Storage storage;
 
     public Memz() {
         this.ui = new Ui();
         this.tasks = new TaskList();
+        this.storage = new Storage("data/memz.txt");
+        this.storage.load(tasks);
     }
 
     /**
@@ -37,6 +40,7 @@ public class Memz {
 
             try {
                 isRunning = Parser.parseAndExecute(input, tasks, ui);
+                storage.save(tasks);
             } catch (MemzException e) {
                 ui.showError(e.getMessage());
             } catch (NumberFormatException e) {
