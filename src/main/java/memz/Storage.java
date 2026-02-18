@@ -6,9 +6,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Manages reading and writing tasks to the hard disk.
+ */
 public class Storage {
     private final String filePath;
 
+    /**
+     * Initializes storage with the specified file path.
+     * @param filePath Path to the save file.
+     */
     public Storage(String filePath) {
         this.filePath = filePath;
     }

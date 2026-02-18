@@ -4,8 +4,19 @@ import memz.exceptions.MemzException;
 import memz.tasks.*;
 import memz.ui.Ui;
 
+/**
+ * Interprets user strings and executes the corresponding actions.
+ */
 public class Parser {
 
+    /**
+     * Parses the command word and executes the logic for task operations.
+     * @param input Raw user input.
+     * @param tasks List to be modified.
+     * @param ui    UI for printing results.
+     * @return      False if "bye" is called, true otherwise.
+     * @throws MemzException If command format or details are invalid.
+     */
     public static boolean parseAndExecute(String input, TaskList tasks, Ui ui) throws MemzException {
         String command = input.split(" ")[0];
 

@@ -10,7 +10,7 @@ public class Event extends Task {
 
     /**
      * Initializes a new memz.tasks.Event task.
-     * * @param description The name of the event.
+     * @param description The name of the event.
      * @param from The start time/date of the event.
      * @param to The end time/date of the event.
      */

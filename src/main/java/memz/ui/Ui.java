@@ -50,17 +50,10 @@ public class Ui {
         this.in = new Scanner(System.in);
     }
 
-    /**
-     * Reads a command from the user.
-     * @return The next line of input.
-     */
     public String readCommand() {
         return in.nextLine();
     }
 
-    /**
-     * Displays the welcome message and the Memz logo.
-     */
     public void showWelcome() {
         System.out.println(LOGO);
     }
@@ -77,23 +70,14 @@ public class Ui {
         System.out.println(BYE_MESSAGE);
     }
 
-    /**
-     * Prints a confirmation message indicating a task has been successfully added.
-     */
     public void showTaskAdded(Task task, int count) {
         System.out.println(TASK_ADDED_MESSAGE + task + "\nNow you have " + count + " tasks in the list.");
     }
 
-    /**
-     * Prints a confirmation message indicating a task has been successfully deleted.
-     */
     public void showTaskDeleted(Task task, int count) {
         System.out.println(TASK_DELETED_MESSAGE + task + "\nNow you have " + count + " tasks in the list.");
     }
 
-    /**
-     * Iterates through the list of stored tasks and prints them to the standard output.
-     */
     public void showTaskList(TaskList tasks) {
         System.out.println(LIST_MESSAGE);
         for (int i = 0; i < tasks.size(); i++) {

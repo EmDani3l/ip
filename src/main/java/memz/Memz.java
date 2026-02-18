@@ -20,15 +20,16 @@ public class Memz {
     }
 
     /**
-     * Runs the main event loop, reading user input and delegating commands
-     * to specific handler methods until the "bye" command is received.
-     * Handles top-level exceptions for invalid inputs and execution errors.
+     * Starts the application and runs the main event loop.
      * @param args Command line arguments (not used).
      */
     public static void main(String[] args) {
         new Memz().run();
     }
 
+    /**
+     * Handles the continuous cycle of reading, parsing, and saving user commands.
+     */
     public void run() {
         ui.showWelcome();
         boolean isRunning = true;

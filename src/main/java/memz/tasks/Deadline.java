@@ -9,7 +9,7 @@ public class Deadline extends Task {
 
     /**
      * Initializes a new memz.tasks.Deadline task.
-     * * @param description The content of the task.
+     * @param description The content of the task.
      * @param by The date or time the task is due.
      */
     public Deadline(String description, String by) {
