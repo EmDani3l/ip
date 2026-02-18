@@ -22,9 +22,19 @@ public class Storage {
                 String[] parts = s.nextLine().split(" \\| ");
                 Task t = null;
                 switch (parts[0]) {
-                case "T": t = new Todo(parts[2]); break;
-                case "D": t = new Deadline(parts[2], parts[3]); break;
-                case "E": t = new Event(parts[2], parts[3], parts[4]); break;
+                case "T":
+                    t = new Todo(parts[2]);
+                    break;
+                case "D":
+                    if (parts.length >= 4) {
+                        t = new Deadline(parts[2], parts[3]);
+                    }
+                    break;
+                case "E":
+                    if (parts.length >= 5) {
+                        t = new Event(parts[2], parts[3], parts[4]);
+                    }
+                    break;
                 }
                 if (t != null) {
                     if (parts[1].equals("1")) t.markAsDone();
