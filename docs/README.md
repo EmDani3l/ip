@@ -28,7 +28,15 @@ Adds a task that must be completed by a specific date.
 
 Format: deadline <description> /by yyyy-mm-dd
 
-Example: deadline return book /by 2026-12-01
+or
+
+Format: deadline <description> /by <when>
+
+Examples: 
+
+deadline return book /by 2026-12-01
+
+deadline return book /by next Friday
 
 ### event
 
@@ -36,7 +44,15 @@ Adds a task that occurs within a specific timeframe.
 
 Format: event <description> /from yyyy-mm-dd /to yyyy-mm-dd
 
-Example: event project meeting /from 2026-03-01 /to 2026-03-02
+or
+
+Format: event <description> /from <when> /to <when>
+
+Examples: 
+
+event project meeting /from 2026-03-01 /to 2026-03-02
+
+event project meeting /from today /to tomorrow
 
 ## Managing Tasks
 
@@ -82,7 +98,7 @@ Example: find book
 
 ## Exiting
 
-bye
+# bye
 
 Saves your data and closes the application.
 
