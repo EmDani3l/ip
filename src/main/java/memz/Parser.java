@@ -30,31 +30,34 @@ public class Parser {
             break;
 
         case "mark":
-            tasks.mark(parseIndex(input));
-            ui.showMarked(tasks.get(parseIndex(input)));
+            int markIdx = parseIndex(input);
+            tasks.mark(markIdx);
+            ui.showMarked(tasks.get(markIdx));
             break;
 
         case "unmark":
-            tasks.unmark(parseIndex(input));
-            ui.showUnmarked(tasks.get(parseIndex(input)));
+            int unmarkIdx = parseIndex(input);
+            tasks.unmark(unmarkIdx);
+            ui.showUnmarked(tasks.get(unmarkIdx));
             break;
 
         case "delete":
-            Task deleted = tasks.delete(parseIndex(input));
+            int delIdx = parseIndex(input);
+            Task deleted = tasks.delete(delIdx);
             ui.showTaskDeleted(deleted, tasks.size());
             break;
 
         case "todo":
             String todoDesc = check(input, 5, Ui.ERROR_EMPTY_TODO + Ui.PROPER_TODO_FORMAT);
-            add(new Todo(todoDesc), tasks, ui);
+            addTask(new Todo(todoDesc), tasks, ui);
             break;
 
         case "deadline":
-            add(parseDeadline(input), tasks, ui);
+            addTask(parseDeadline(input), tasks, ui);
             break;
 
         case "event":
-            add(parseEvent(input), tasks, ui);
+            addTask(parseEvent(input), tasks, ui);
             break;
 
         default:
@@ -63,7 +66,7 @@ public class Parser {
         return true;
     }
 
-    private static void add(Task t, TaskList tasks, Ui ui) {
+    private static void addTask(Task t, TaskList tasks, Ui ui) {
         tasks.add(t);
         ui.showTaskAdded(t, tasks.size());
     }
