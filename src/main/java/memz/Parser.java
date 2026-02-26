@@ -3,6 +3,7 @@ package memz;
 import memz.exceptions.MemzException;
 import memz.tasks.*;
 import memz.ui.Ui;
+import memz.commands.*;
 
 /**
  * Interprets user strings and executes the corresponding actions.
@@ -17,53 +18,30 @@ public class Parser {
      * @return      False if "bye" is called, true otherwise.
      * @throws MemzException If command format or details are invalid.
      */
-    public static boolean parseAndExecute(String input, TaskList tasks, Ui ui) throws MemzException {
-        String command = input.split(" ")[0];
+    public static Command parse(String input) throws MemzException {
+        String commandWord = input.split(" ")[0];
 
-        switch (command) {
+        switch (commandWord) {
         case "bye":
-            ui.showExit();
-            return false;
-
+            return new ExitCommand();
         case "list":
-            ui.showTaskList(tasks);
-            break;
-
+            return new ListCommand();
         case "mark":
-            int markIdx = parseIndex(input);
-            tasks.mark(markIdx);
-            ui.showMarked(tasks.get(markIdx));
-            break;
-
+            return new MarkCommand(parseIndex(input), true);
         case "unmark":
-            int unmarkIdx = parseIndex(input);
-            tasks.unmark(unmarkIdx);
-            ui.showUnmarked(tasks.get(unmarkIdx));
-            break;
-
+            return new MarkCommand(parseIndex(input), false);
         case "delete":
-            int delIdx = parseIndex(input);
-            Task deleted = tasks.delete(delIdx);
-            ui.showTaskDeleted(deleted, tasks.size());
-            break;
-
+            return new DeleteCommand(parseIndex(input));
         case "todo":
             String todoDesc = check(input, 5, Ui.ERROR_EMPTY_TODO + Ui.PROPER_TODO_FORMAT);
-            addTask(new Todo(todoDesc), tasks, ui);
-            break;
-
+            return new AddCommand(new Todo(todoDesc));
         case "deadline":
-            addTask(parseDeadline(input), tasks, ui);
-            break;
-
+            return new AddCommand(parseDeadline(input));
         case "event":
-            addTask(parseEvent(input), tasks, ui);
-            break;
-
+            return new AddCommand(parseEvent(input));
         default:
             throw new MemzException(Ui.ERROR_UNKNOWN_COMMAND + Ui.PROPER_OVERALL_FORMAT);
         }
-        return true;
     }
 
     private static void addTask(Task t, TaskList tasks, Ui ui) {

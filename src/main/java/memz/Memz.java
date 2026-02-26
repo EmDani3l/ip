@@ -3,6 +3,7 @@ package memz;
 import memz.exceptions.MemzException;
 import memz.tasks.TaskList;
 import memz.ui.Ui;
+import memz.commands.*;
 
 /**
  * Handles user interaction, input parsing, and task management.
@@ -32,22 +33,20 @@ public class Memz {
      */
     public void run() {
         ui.showWelcome();
-        boolean isRunning = true;
+        boolean isExit = false;
 
-        while (isRunning) {
+        while (!isExit) {
             String input = ui.readCommand();
             ui.showLine();
             System.out.println();
 
             try {
-                isRunning = Parser.parseAndExecute(input, tasks, ui);
-                storage.save(tasks);
-            } catch (MemzException e) {
+                Command c = Parser.parse(input); // Step 1: Parse
+                c.execute(tasks, ui, storage);   // Step 2: Execute
+                isExit = c.isExit();             // Step 3: Check exit status
+                storage.save(tasks);             // Step 4: Save
+            } catch (MemzException | NumberFormatException | IndexOutOfBoundsException e) {
                 ui.showError(e.getMessage());
-            } catch (NumberFormatException e) {
-                ui.showError(Ui.ERROR_INVALID_NUMBER);
-            } catch (IndexOutOfBoundsException e) {
-                ui.showError(Ui.ERROR_INDEX_OUT_OF_BOUNDS);
             }
             ui.showLine();
         }
