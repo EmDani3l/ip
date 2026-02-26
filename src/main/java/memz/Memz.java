@@ -6,13 +6,19 @@ import memz.ui.Ui;
 import memz.commands.*;
 
 /**
- * Handles user interaction, input parsing, and task management.
+ * The main entry point for the Memz chatbot.
+ * Orchestrates the initialization of the UI, Storage, and TaskList,
+ * and maintains the primary execution loop.
  */
 public class Memz {
     private final Ui ui;
     private final TaskList tasks;
     private final Storage storage;
 
+    /**
+     * Initializes a new instance of the Memz chatbot.
+     * * @param filePath The path to the text file where task data is persisted.
+     */
     public Memz(String filePath) {
         this.ui = new Ui();
         this.tasks = new TaskList();
@@ -20,16 +26,14 @@ public class Memz {
         this.storage.load(tasks);
     }
 
-    /**
-     * Starts the application and runs the main event loop.
-     * @param args Command line arguments (not used).
-     */
     public static void main(String[] args) {
         new Memz("data/memz.txt").run();
     }
 
     /**
-     * Handles the continuous cycle of reading, parsing, and saving user commands.
+     * Runs the main program loop, reading commands from the user and executing them
+     * until an ExitCommand is triggered. Handles exceptions for invalid inputs
+     * and file errors.
      */
     public void run() {
         ui.showWelcome();
