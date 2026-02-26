@@ -7,22 +7,20 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * Manages reading and writing tasks to the hard disk.
+ * Handles the loading of tasks from a local file and the saving of tasks
+ * back to that file to ensure data persistence across sessions.
  */
 public class Storage {
     private final String filePath;
 
-    /**
-     * Initializes storage with the specified file path.
-     * @param filePath Path to the save file.
-     */
     public Storage(String filePath) {
         this.filePath = filePath;
     }
 
     /**
-     * Loads tasks from the file into the TaskList.
-     * @param tasks The list to populate with saved data.
+     * Reads the save file line by line and populates the TaskList.
+     * Each line is expected to be in the pipe-delimited format (e.g., T | 1 | description).
+     * * @param tasks The TaskList to be populated with data from the disk.
      */
     public void load(TaskList tasks) {
         File f = new File(filePath);

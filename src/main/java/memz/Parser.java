@@ -6,17 +6,16 @@ import memz.ui.Ui;
 import memz.commands.*;
 
 /**
- * Interprets user strings and executes the corresponding actions.
+ * Contains logic to interpret raw user input strings and convert them into
+ * executable {@code Command} objects.
  */
 public class Parser {
 
     /**
-     * Parses the command word and executes the logic for task operations.
-     * @param input Raw user input.
-     * @param tasks List to be modified.
-     * @param ui    UI for printing results.
-     * @return      False if "bye" is called, true otherwise.
-     * @throws MemzException If command format or details are invalid.
+     * Analyzes the user's input string to determine which command to create.
+     * * @param input The full raw string entered by the user.
+     * @return A specific {@code Command} subclass (e.g., AddCommand, DeleteCommand).
+     * @throws MemzException If the command word is unknown or the format is invalid.
      */
     public static Command parse(String input) throws MemzException {
         String commandWord = input.split(" ")[0];
@@ -69,6 +68,12 @@ public class Parser {
         return input.substring(minLen);
     }
 
+    /**
+     * Extracts the date/time information for a Deadline task.
+     * * @param input The raw input string containing the "/by" delimiter.
+     * @return A {@code Deadline} task object.
+     * @throws MemzException If the "/by" keyword is missing or description is empty.
+     */
     private static Task parseDeadline(String input) throws MemzException {
         String content = check(input, 9, Ui.ERROR_EMPTY_DEADLINE + Ui.PROPER_DEADLINE_FORMAT);
 
@@ -83,6 +88,12 @@ public class Parser {
         return new Deadline(parts[0], parts[1]);
     }
 
+    /**
+     * Extracts the date/time information for an Event task.
+     * * @param input The raw input string containing the "/from" and "to" delimiter.
+     * @return A {@code Event} task object.
+     * @throws MemzException If the "/from" and/or "/to" keyword is missing or description is empty.
+     */
     private static Task parseEvent(String input) throws MemzException {
         String content = check(input, 6, Ui.ERROR_EMPTY_EVENT + Ui.PROPER_EVENT_FORMAT);
 

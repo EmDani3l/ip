@@ -6,6 +6,10 @@ import memz.ui.Ui;
 import memz.Storage;
 import java.util.ArrayList;
 
+/**
+ * Searches for tasks within the TaskList that contain a specific keyword
+ * in their description.
+ */
 public class FindCommand extends Command {
     private final String keyword;
 
