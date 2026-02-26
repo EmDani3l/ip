@@ -51,8 +51,6 @@ public class Memz {
                 storage.save(tasks);             // Step 4: Save
             } catch (MemzException | NumberFormatException | IndexOutOfBoundsException e) {
                 ui.showError(e.getMessage());
-            } catch (java.time.format.DateTimeParseException e) {
-                ui.showError("Invalid date format! Please use yyyy-mm-dd (e.g., 2024-12-25).");
             }
             ui.showLine();
         }

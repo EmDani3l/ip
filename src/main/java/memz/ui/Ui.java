@@ -27,8 +27,8 @@ public class Ui {
 
     // Formatting constants
     public static final String PROPER_TODO_FORMAT = "Correct format: todo <description>";
-    public static final String PROPER_DEADLINE_FORMAT = "Correct format: deadline <desc> /by yyyy-mm-dd)";
-    public static final String PROPER_EVENT_FORMAT = "Correct format: event <desc> /from yyyy-mm-dd /to yyyy-mm-dd";
+    public static final String PROPER_DEADLINE_FORMAT = "Correct format: deadline <desc> /by <date(yyyy-mm-dd) or time>)";
+    public static final String PROPER_EVENT_FORMAT = "Correct format: event <desc> /from <date(yyyy-mm-dd) or time> /to <date(yyyy-mm-dd) or time>";
 
     // Overall format constant
     public static final String PROPER_OVERALL_FORMAT = "Please follow the given input format:\n"
@@ -97,9 +97,9 @@ public class Ui {
 
     public void showFoundTasks(ArrayList<Task> matchingTasks) {
         if (matchingTasks.isEmpty()) {
-            System.out.println("     No matching tasks found!");
+            System.out.println("No matching tasks found!");
         } else {
-            System.out.println("     Here are the matching tasks in your list:");
+            System.out.println("Here are the matching tasks in your list:");
             for (int i = 0; i < matchingTasks.size(); i++) {
                 System.out.println("     " + (i + 1) + "." + matchingTasks.get(i));
             }
