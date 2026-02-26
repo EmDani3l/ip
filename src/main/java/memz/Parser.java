@@ -39,6 +39,9 @@ public class Parser {
             return new AddCommand(parseDeadline(input));
         case "event":
             return new AddCommand(parseEvent(input));
+        case "find":
+            String keyword = check(input, 5, "Please enter a keyword to find!");
+            return new FindCommand(keyword.trim());
         default:
             throw new MemzException(Ui.ERROR_UNKNOWN_COMMAND + Ui.PROPER_OVERALL_FORMAT);
         }

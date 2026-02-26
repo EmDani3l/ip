@@ -13,6 +13,10 @@ public class Task {
         this.isDone = false;
     }
 
+    public String getDescription() {
+        return this.description;
+    }
+
     public String getStatusIcon() {
         //Change to [X] if marked as done, otherwise leave blank
         return (isDone ? "X" : " ");
