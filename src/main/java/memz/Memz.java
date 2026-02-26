@@ -12,10 +12,10 @@ public class Memz {
     private final TaskList tasks;
     private final Storage storage;
 
-    public Memz() {
+    public Memz(String filePath) {
         this.ui = new Ui();
         this.tasks = new TaskList();
-        this.storage = new Storage("data/memz.txt");
+        this.storage = new Storage(filePath);
         this.storage.load(tasks);
     }
 
@@ -24,7 +24,7 @@ public class Memz {
      * @param args Command line arguments (not used).
      */
     public static void main(String[] args) {
-        new Memz().run();
+        new Memz("data/memz.txt").run();
     }
 
     /**
