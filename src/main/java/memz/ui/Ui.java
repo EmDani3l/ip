@@ -25,8 +25,8 @@ public class Ui {
 
     // Formatting constants
     public static final String PROPER_TODO_FORMAT = "Correct format: todo <description>";
-    public static final String PROPER_DEADLINE_FORMAT = "Correct format: deadline <description> /by <time>";
-    public static final String PROPER_EVENT_FORMAT = "Correct format: event <description> /from <start> /to <end>";
+    public static final String PROPER_DEADLINE_FORMAT = "Correct format: deadline <desc> /by yyyy-mm-dd)";
+    public static final String PROPER_EVENT_FORMAT = "Correct format: event <desc> /from yyyy-mm-dd /to yyyy-mm-dd";
 
     // Overall format constant
     public static final String PROPER_OVERALL_FORMAT = "Please follow the given input format:\n"
