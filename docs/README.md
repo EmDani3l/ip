@@ -4,33 +4,33 @@ Memz is a CLI-based task manager designed for those who want a sarcastic yet fun
 
 ## Table of Contents
 
-Adding Tasks
+1. Adding Tasks
 
-Managing Tasks
+2. Managing Tasks
 
-Searching
+3. Searching
 
-Exiting
+4. Exiting
 
-## Adding Tasks
+## 1. Adding Tasks
 
 ### todo
 
 Adds a basic task without any date constraints.
 
-Format: todo <description>
+Format: todo {description}
 
 Example: todo read book
 
 ### deadline
 
-Adds a task that must be completed by a specific date.
+Adds a task that must be completed by a specific date or time.
 
-Format: deadline <description> /by yyyy-mm-dd
+Format: deadline {description} /by yyyy-mm-dd
 
 or
 
-Format: deadline <description> /by <when>
+Format: deadline {description} /by {when}
 
 Examples: 
 
@@ -42,11 +42,11 @@ deadline return book /by next Friday
 
 Adds a task that occurs within a specific timeframe.
 
-Format: event <description> /from yyyy-mm-dd /to yyyy-mm-dd
+Format: event {description} /from yyyy-mm-dd /to yyyy-mm-dd
 
 or
 
-Format: event <description> /from <when> /to <when>
+Format: event {description} /from {when} /to {when}
 
 Examples: 
 
@@ -54,7 +54,7 @@ event project meeting /from 2026-03-01 /to 2026-03-02
 
 event project meeting /from today /to tomorrow
 
-## Managing Tasks
+## 2. Managing Tasks
 
 ### list
 
@@ -66,15 +66,15 @@ Format: list
 
 Marks a task as completed.
 
-Format: mark <index>
+Format: mark {index}
 
 Example: mark 1
 
 ### unmark
 
-Reverts a completed task back to "not done."
+Reverts a completed task back to "not done".
 
-Format: unmark <index>
+Format: unmark {index}
 
 Example: unmark 1
 
@@ -82,29 +82,29 @@ Example: unmark 1
 
 Removes a task permanently from the list.
 
-Format: delete <index>
+Format: delete {index}
 
 Example: delete 2
 
-## Searching
+## 3. Searching
 
 ### find
 
 Filters the list to show only tasks containing a specific keyword in the description.
 
-Format: find <keyword>
+Format: find {keyword}
 
 Example: find book
 
-## Exiting
+## 4. Exiting
 
-# bye
+### bye
 
 Saves your data and closes the application.
 
 Format: bye
 
-## Tips for Success
+## Additional Details
 
 Dates: Always use the yyyy-mm-dd format (Year-Month-Day) for deadlines and events, or Memz will complain.
 
