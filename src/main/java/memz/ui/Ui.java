@@ -35,9 +35,9 @@ public class Ui {
     // Overall format constant
     public static final String PROPER_OVERALL_FORMAT = "Please follow the given input format:\n"
                                                         + PROPER_TODO_FORMAT
-                                                        + " | "
+                                                        + " | \n"
                                                         + PROPER_DEADLINE_FORMAT
-                                                        + " | "
+                                                        + " | \n"
                                                         + PROPER_EVENT_FORMAT;
 
     // Error message constants
