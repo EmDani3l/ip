@@ -1,111 +1,225 @@
 # Memz Chatbot - User Guide
 
+> "Want a cookie? Dowan give then how?"
+
 Memz is a CLI-based task manager designed for those who want a sarcastic yet functional way to track their daily grind. Stop procrastinating and start tracking.
+
+---
 
 ## Table of Contents
 
-1. Adding Tasks
+**Getting Started**
+* [Installation](#installation)
 
-2. Managing Tasks
+**Task Management**
+* [Adding a Todo](#adding-a-todo)
+* [Adding a Deadline](#adding-a-deadline)
+* [Adding an Event](#adding-an-event)
+* [Listing All Tasks](#listing-all-tasks)
+* [Finding Tasks](#finding-tasks)
 
-3. Searching
+**Task Modifying**
+* [Marking a Task as Done](#marking-a-task-as-done)
+* [Marking a Task as Not Done](#marking-a-task-as-not-done)
+* [Deleting a Task](#deleting-a-task)
 
-4. Exiting
+**General**
+* [Exiting](#exiting)
+* [Command Cheat Sheet](#command-cheat-sheet)
+* [Data Storage](#data-storage)
 
-## 1. Adding Tasks
+---
 
-### todo
+## Installation
 
-Adds a basic task without any date constraints.
+Prerequisites: You need **Java 17** or higher installed on your machine.
 
-Format: todo {description}
+1. Download the latest `memz.jar` file from the releases.
+2. Open your terminal.
+3. Navigate to the folder where you downloaded the file.
+4. Run the following command:
+   `java -jar memz.jar`
 
-Example: todo read book
+---
 
-### deadline
+# Task Management
+
+## Adding a Todo
+
+Adds a task.
+
+Format: `todo <description>` \
+Example: `todo read book`
+
+Output:
+```text
+Got it. I've added this task:
+  [T][ ] read book
+Now you have 1 tasks in the list.
+```
+
+---
+
+## Adding a Deadline
 
 Adds a task that must be completed by a specific date or time.
+Always use the `yyyy-mm-dd` format (Year-Month-Day) for date deadlines.
 
-Format: deadline {description} /by yyyy-mm-dd
+Format: `deadline <description> /by <date>` OR `deadline <description> /by <time>` \
+Example: `deadline return book /by 2026-12-01` OR `deadline return book /by tomorrow`
 
-or
+Output:
+```text
+Got it. I've added this task:
+  [D][ ] return book (by: Dec 01 2026)
+Now you have 2 tasks in the list.
+```
+OR
 
-Format: deadline {description} /by {when}
+```text
+Got it. I've added this task:
+  [D][ ] return book (by: tomorrow)
+Now you have 2 tasks in the list.
+```
 
-Examples: 
+---
 
-deadline return book /by 2026-12-01
-
-deadline return book /by next Friday
-
-### event
+## Adding an Event
 
 Adds a task that occurs within a specific timeframe.
+Always use the `yyyy-mm-dd` format (Year-Month-Day) for events with dates.
 
-Format: event {description} /from yyyy-mm-dd /to yyyy-mm-dd
+Format: `event <description> /from <start date> /to <end date>` OR `event <description> /from <start> /to <end>`\
+Example: `event project meeting /from 2026-03-01 /to 2026-03-02` OR `event project meeting /from now /to later`
 
-or
+Output:
+```text
+Got it. I've added this task:
+  [E][ ] project meeting (from: Mar 01 2026 to: Mar 02 2026)
+Now you have 3 tasks in the list.
+```
+OR
 
-Format: event {description} /from {when} /to {when}
+```text
+Got it. I've added this task:
+  [E][ ] project meeting (from: now to: later)
+Now you have 3 tasks in the list.
+```
 
-Examples: 
+---
 
-event project meeting /from 2026-03-01 /to 2026-03-02
-
-event project meeting /from today /to tomorrow
-
-## 2. Managing Tasks
-
-### list
+## Listing All Tasks
 
 Displays all current tasks in your list.
 
-Format: list
+Format: `list` \
+Example: `list`
 
-### mark
+Output:
+```text
+Here are your tasks. Stop procrastinating:
+1.[T][ ] read book
+2.[D][ ] return book (by: Dec 01 2026)
+3.[E][ ] project meeting (from: Mar 01 2026 to: Mar 02 2026)
+```
+
+---
+
+## Finding Tasks
+
+Search and show only tasks containing a specific keyword.
+
+Format: `find <keyword>` \
+Example: `find book`
+
+Output:
+```text
+Here are the matching tasks in your list:
+     1.[T][ ] read book
+     2.[D][ ] return book (by: Dec 01 2026)
+```
+
+---
+
+# Task Modifying
+
+## Marking a Task to Done
 
 Marks a task as completed.
 
-Format: mark {index}
+Format: `mark <index>` \
+Example: `mark 1`
 
-Example: mark 1
+Output:
+```text
+Fine. You can have this one:
+  [T][X] read book
+```
 
-### unmark
+---
+
+## Unarking a Task to Not Done
 
 Reverts a completed task back to "not done".
 
-Format: unmark {index}
+Format: `unmark <index>` \
+Example: `unmark 1`
 
-Example: unmark 1
+Output:
+```text
+SEE, you're not done yet:
+  [T][ ] read book
+```
 
-### delete
+---
 
-Removes a task permanently from the list.
+## Deleting a Task
 
-Format: delete {index}
+Removes a task from the list.
 
-Example: delete 2
+Format: `delete <index>` \
+Example: `delete 1`
 
-## 3. Searching
+Output:
+```text
+Cheater. I've removed this task:
+  [T][ ] read book
+Now you have 2 tasks in the list.
+```
 
-### find
+---
 
-Filters the list to show only tasks containing a specific keyword in the description.
+# General
 
-Format: find {keyword}
-
-Example: find book
-
-## 4. Exiting
-
-### bye
+## Exiting
 
 Saves your data and closes the application.
 
-Format: bye
+Format: `bye`
 
-## Additional Details
+Output:
+```text
+Bye. You better watch out.
+```
 
-Dates: Always use the yyyy-mm-dd format (Year-Month-Day) for deadlines and events, or Memz will complain.
+---
 
-Persistence: Your tasks are automatically saved to ./data/memz.txt every time you enter a command.
+## Command Cheat Sheet
+
+| Command      | Format                                        | Example                                                                                                |
+|:-------------|:----------------------------------------------|:-------------------------------------------------------------------------------------------------------|
+| **todo**     | `todo <description>`                          | `todo read book`                                                                                       |
+| **deadline** | `deadline <description> /by <date or time>`   | `deadline return book /by 2026-12-01` OR `deadline return book /by tonight`                            |
+| **event**    | `event <description> /from <start> /to <end>` | `event project meeting /from 2026-03-01 /to 2026-03-02` OR `event project meeting /from now /to later` |
+| **list**     | `list`                                        | `list`                                                                                                 |
+| **mark**     | `mark <index>`                                | `mark 1`                                                                                               |
+| **unmark**   | `unmark <index>`                              | `unmark 1`                                                                                             |
+| **find**     | `find <keyword>`                              | `find book`                                                                                            |
+| **delete**   | `delete <index>`                              | `delete 1`                                                                                             |
+| **bye**      | `bye`                                         | `bye`                                                                                                  |
+
+---
+
+## Data Storage
+
+Tasks are automatically saved to `./data/memz.txt`.
