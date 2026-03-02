@@ -8,22 +8,20 @@ Memz is a CLI-based task manager designed for those who want a sarcastic yet fun
 
 ## Table of Contents
 
-**Getting Started**
+**I. Getting Started**
 * [Installation](#installation)
 
-**Task Management**
+**II. Task Actions**
 * [Adding a Todo](#adding-a-todo)
 * [Adding a Deadline](#adding-a-deadline)
 * [Adding an Event](#adding-an-event)
 * [Listing All Tasks](#listing-all-tasks)
+* [Marking a Task to Done](#marking-a-task-to-done)
+* [Unmarking a Task to Not Done](#unmarking-a-task-to-not-done)
+* [Deleting a Task](#deleting-a-task)
 * [Finding Tasks](#finding-tasks)
 
-**Task Modifying**
-* [Marking a Task as Done](#marking-a-task-as-done)
-* [Marking a Task as Not Done](#marking-a-task-as-not-done)
-* [Deleting a Task](#deleting-a-task)
-
-**General**
+**III. General**
 * [Exiting](#exiting)
 * [Command Cheat Sheet](#command-cheat-sheet)
 * [Data Storage](#data-storage)
@@ -42,7 +40,7 @@ Prerequisites: You need **Java 17** or higher installed on your machine.
 
 ---
 
-# Task Management
+# Task Actions
 
 ## Adding a Todo
 
@@ -89,7 +87,7 @@ Now you have 2 tasks in the list.
 Adds a task that occurs within a specific timeframe.
 Always use the `yyyy-mm-dd` format (Year-Month-Day) for events with dates.
 
-Format: `event <description> /from <start date> /to <end date>` OR `event <description> /from <start> /to <end>`\
+Format: `event <description> /from <start date> /to <end date>` OR `event <description> /from <start> /to <end>` \
 Example: `event project meeting /from 2026-03-01 /to 2026-03-02` OR `event project meeting /from now /to later`
 
 Output:
@@ -125,24 +123,6 @@ Here are your tasks. Stop procrastinating:
 
 ---
 
-## Finding Tasks
-
-Search and show only tasks containing a specific keyword.
-
-Format: `find <keyword>` \
-Example: `find book`
-
-Output:
-```text
-Here are the matching tasks in your list:
-     1.[T][ ] read book
-     2.[D][ ] return book (by: Dec 01 2026)
-```
-
----
-
-# Task Modifying
-
 ## Marking a Task to Done
 
 Marks a task as completed.
@@ -158,7 +138,7 @@ Fine. You can have this one:
 
 ---
 
-## Unarking a Task to Not Done
+## Unmarking a Task to Not Done
 
 Reverts a completed task back to "not done".
 
@@ -189,6 +169,22 @@ Now you have 2 tasks in the list.
 
 ---
 
+## Finding Tasks
+
+Search and show only tasks containing a specific keyword.
+
+Format: `find <keyword>` \
+Example: `find book`
+
+Output:
+```text
+Here are the matching tasks in your list:
+     1.[T][ ] read book
+     2.[D][ ] return book (by: Dec 01 2026)
+```
+
+---
+
 # General
 
 ## Exiting
@@ -208,15 +204,15 @@ Bye. You better watch out.
 
 | Command      | Format                                        | Example                                                                                                |
 |:-------------|:----------------------------------------------|:-------------------------------------------------------------------------------------------------------|
-| **todo**     | `todo <description>`                          | `todo read book`                                                                                       |
+| **todo** | `todo <description>`                          | `todo read book`                                                                                       |
 | **deadline** | `deadline <description> /by <date or time>`   | `deadline return book /by 2026-12-01` OR `deadline return book /by tonight`                            |
-| **event**    | `event <description> /from <start> /to <end>` | `event project meeting /from 2026-03-01 /to 2026-03-02` OR `event project meeting /from now /to later` |
-| **list**     | `list`                                        | `list`                                                                                                 |
-| **mark**     | `mark <index>`                                | `mark 1`                                                                                               |
-| **unmark**   | `unmark <index>`                              | `unmark 1`                                                                                             |
-| **find**     | `find <keyword>`                              | `find book`                                                                                            |
-| **delete**   | `delete <index>`                              | `delete 1`                                                                                             |
-| **bye**      | `bye`                                         | `bye`                                                                                                  |
+| **event** | `event <description> /from <start> /to <end>` | `event project meeting /from 2026-03-01 /to 2026-03-02` OR `event project meeting /from now /to later` |
+| **list** | `list`                                        | `list`                                                                                                 |
+| **mark** | `mark <index>`                                | `mark 1`                                                                                               |
+| **unmark** | `unmark <index>`                              | `unmark 1`                                                                                             |
+| **find** | `find <keyword>`                              | `find book`                                                                                            |
+| **delete** | `delete <index>`                              | `delete 1`                                                                                             |
+| **bye** | `bye`                                         | `bye`                                                                                                  |
 
 ---
 
