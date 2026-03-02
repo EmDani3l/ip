@@ -49,8 +49,12 @@ public class Memz {
                 c.execute(tasks, ui, storage);   // Step 2: Execute
                 isExit = c.isExit();             // Step 3: Check exit status
                 storage.save(tasks);             // Step 4: Save
-            } catch (MemzException | NumberFormatException | IndexOutOfBoundsException e) {
+            } catch (MemzException e) {
                 ui.showError(e.getMessage());
+            } catch (NumberFormatException e) {
+                ui.showError(Ui.ERROR_INVALID_NUMBER);
+            } catch (IndexOutOfBoundsException e) {
+                ui.showError(Ui.ERROR_INDEX_OUT_OF_BOUNDS);
             }
             ui.showLine();
         }
