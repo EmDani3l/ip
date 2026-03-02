@@ -39,7 +39,7 @@ public class Parser {
         case "event":
             return new AddCommand(parseEvent(input));
         case "find":
-            String keyword = check(input, 5, "Please enter a keyword to find!");
+            String keyword = check(input, 5, Ui.ERROR_EMPTY_FIND);
             return new FindCommand(keyword.trim());
         default:
             throw new MemzException(Ui.ERROR_UNKNOWN_COMMAND + Ui.PROPER_OVERALL_FORMAT);

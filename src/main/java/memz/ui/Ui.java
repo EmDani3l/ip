@@ -16,6 +16,8 @@ public class Ui {
     public static final String LIST_MESSAGE = "Here are your tasks. Stop procrastinating:";
     public static final String MARK_TASK_MESSAGE = "Fine. You can have this one:\n  ";
     public static final String UNMARK_TASK_MESSAGE = "SEE, you're not done yet:\n  ";
+    public static final String FOUND_NO_TASK_MESSAGE = "No matching tasks found!";
+    public static final String MATCHING_TASKS_MESSAGE = "Here are the matching tasks in your list:";
     public static final String BYE_MESSAGE = "Bye. You better watch out.\n";
     public static final String LOGO = "Hello from\n" +
             " __  __                      \n" +
@@ -47,6 +49,7 @@ public class Ui {
     public static final String ERROR_MISSING_FROM_TO = "An event only begins if it ends and only ends if it begins.\n";
     public static final String ERROR_INVALID_NUMBER = "Do you know what a number is??\nExample: mark 1";
     public static final String ERROR_INDEX_OUT_OF_BOUNDS = "I know you are not THAT busy. Pick a task you actually have.";
+    public static final String ERROR_EMPTY_FIND = "Please enter a keyword to find!";
 
     public Ui() {
         this.in = new Scanner(System.in);
@@ -97,9 +100,9 @@ public class Ui {
 
     public void showFoundTasks(ArrayList<Task> matchingTasks) {
         if (matchingTasks.isEmpty()) {
-            System.out.println("No matching tasks found!");
+            System.out.println(FOUND_NO_TASK_MESSAGE);
         } else {
-            System.out.println("Here are the matching tasks in your list:");
+            System.out.println(MATCHING_TASKS_MESSAGE);
             for (int i = 0; i < matchingTasks.size(); i++) {
                 System.out.println("     " + (i + 1) + "." + matchingTasks.get(i));
             }
