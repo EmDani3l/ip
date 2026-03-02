@@ -1,9 +1,19 @@
 package memz;
 
+import memz.commands.AddCommand;
+import memz.commands.Command;
+import memz.commands.DeleteCommand;
+import memz.commands.ExitCommand;
+import memz.commands.FindCommand;
+import memz.commands.ListCommand;
+import memz.commands.MarkCommand;
 import memz.exceptions.MemzException;
-import memz.tasks.*;
+import memz.tasks.Deadline;
+import memz.tasks.Event;
+import memz.tasks.Task;
+import memz.tasks.TaskList;
+import memz.tasks.Todo;
 import memz.ui.Ui;
-import memz.commands.*;
 
 /**
  * Contains logic to interpret raw user input strings and convert them into

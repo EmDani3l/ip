@@ -1,9 +1,9 @@
 package memz;
 
+import memz.commands.Command;
 import memz.exceptions.MemzException;
 import memz.tasks.TaskList;
 import memz.ui.Ui;
-import memz.commands.*;
 
 /**
  * The main entry point for the Memz chatbot.

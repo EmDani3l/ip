@@ -1,6 +1,11 @@
 package memz;
 
-import memz.tasks.*;
+import memz.tasks.Deadline;
+import memz.tasks.Event;
+import memz.tasks.Task;
+import memz.tasks.TaskList;
+import memz.tasks.Todo;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
